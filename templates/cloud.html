@@ -6,25 +6,32 @@
 <h2 style="font-family: Century Gothic;" align="center">NEERAJ NEGI</h2>
 <h2 style="font-family: Century Gothic;" align="center">CSB-66</h2>
 <h3 align="center" style="font-family: Palatino Linotype;">Enter a string to check for Palindrome</h3>
-<input type="text" id="myText" value="">
-<button onclick="myFunction()">Check</button>
+<center><input type="text" id="myText" value=""></center>
+<center><button onclick="myFunction()">Check</button></center>
+<h3 align="center" style="font-family: Palatino Linotype;" id="inputString"></h3>
 <h3 align="center" style="font-family: Palatino Linotype;" id="demo"></h3>
 <script>
 function myFunction() {
     var str = document.getElementById("myText").value;
+    if(str.length == 0){
+        alert("Please enter a string!");
+        return;
+    }
 	var x = 0;
     var len = str.length;
     for ( var i = 0; i < Math.floor(len/2); i++ ) {
-        if (str[i] !== str[len - 1 - i]) {
+        if (str[i] !== str[len - 1 - i]){
             x=1;
         }
     }
+    document.getElementById("inputString").innerHTML=str;
     if(x>0){
     	document.getElementById("demo").innerHTML = "Not Palindrome";
     }
     else{
     	document.getElementById("demo").innerHTML = "Palindrome";
     }
+    document.getElementById("myText").value = "";
     	
 }
 </script>
